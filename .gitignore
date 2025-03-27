@@ -1,3 +1,4 @@
 *.exe
 pruebas.c
 *.o
+*.json
