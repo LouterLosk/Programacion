@@ -71,3 +71,16 @@ scanf("%s",nombre)
 solo para careacteres 
 gets(nombre)
 fgets(nombre, 30 ,stdin)
+
+
+Muchas funciones de la biblioteca estándar de C utilizan . Por ejemplo:
+sizeof devuelve el tamaño de un objeto en bytes como un size_t.
+Funciones como strlen (para medir la longitud de cadenas) tambien devuelven valores de tipo size_t
+
+
+int entero = 42;
+    char cadena[10]; // Asegúrate de que el tamaño sea suficiente para almacenar la cadena.
+    
+    sprintf(cadena, "%d", entero); // Convierte el entero a cadena.
+    
+    printf("La cadena es: %s\n", cadena);
