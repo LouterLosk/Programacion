@@ -20,7 +20,6 @@ int esNumero(const char *str) {
 
 int ValidarNum(char *num){
     if (esNumero(num)) {
-        long numero = strtol(num, NULL, 10);
         return 1;
     } else {
         printf("Entrada invalida: No es un numero positivo.\n");
