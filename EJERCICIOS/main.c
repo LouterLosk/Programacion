@@ -28,12 +28,12 @@ int ValidarNum(char *num){
 }
 
 int main() {
-    int cantidad, opcion,resultado,stockint;
+    int cantidad, opcion,resultado,stockint,porcentaje;
     int repetir = 1;
-    float precio = 0,total_ganancias = 0;
+    float precio = 0,total_ganancias = 0,valorFinal = 0;
     char nombre[50],cantidadStr[20];
-    char id[20],stock[20];
-/*
+    char id[20],stock[20],porcentajeStr[20];
+
     // Registro del producto
     do //ID
     {
@@ -66,14 +66,12 @@ int main() {
             }
         }
         if (es_valido) {
-            printf("Entrada valida: %s\n", nombre);
             repetir = 0;
         } else {
             printf("Entrada invalida: contiene numeros u otros caracteres no permitidos.\n");
             repetir = 1;
         }
     }while (repetir);
-*/
 
     do//inicial stock
     {
@@ -111,14 +109,62 @@ int main() {
         printf("3. Mostrar informacion del producto\n");
         printf("4. Mostrar total de ganancias\n");
         printf("5. Salir\n");
-        printf("Seleccione una opcion: ");
+        printf("\nSeleccione una opcion: ");
         scanf("%d", &opcion);
 
         switch(opcion) {
             case 1:
-            do
-            {
-                printf("\nIngrese la cantidad a vender: ");
+                do//Cantidad vender
+                {
+                    printf("\nIngrese la cantidad a vender: ");
+                    scanf("%s", &cantidadStr);
+                    if (ValidarNum(cantidadStr) != 0) {
+                        repetir = 0; // Si la validación es exitosa
+                    } else {
+                        repetir = 1; // Si la validación falla
+                    }
+                    cantidad = atoi(cantidadStr);
+                } while (repetir || cantidad < 0);
+
+                if(cantidad <= stockint){
+                    valorFinal = precio * (float)cantidad;
+                    printf("El valor de la venta es: %.2f $\n",valorFinal);
+                    do//Descuento
+                    {
+                        printf("Ingrese el porcentaje de descuento: ");
+                        scanf("%s",&porcentajeStr);
+                        porcentaje = atoi(porcentajeStr);
+                        if (ValidarNum(porcentajeStr) != 0) {
+                            repetir = 0; // Si la validación es exitosa
+                        } else {
+                            repetir = 1; // Si la validación falla
+                        }
+                        if (porcentaje > 100){
+                            printf("El porcentaje no puede ser mayor a 100%%\n\n");
+                            repetir = 1;
+                        }
+                    } while (repetir);
+                    if (porcentaje != 0){
+                        valorFinal = ((float)porcentaje / 100)*valorFinal;
+                        valorFinal = (precio * (float)cantidad) - valorFinal;
+                        printf("\nEl valor final es de %.2f$ \n",valorFinal);
+                        total_ganancias += valorFinal;
+                    }else{
+                        total_ganancias += valorFinal;
+                    }
+                    printf("Venta exitosa!!\n");
+                    stockint -= cantidad;
+                }else{
+                    printf("No hay el stock suficiente\n");
+                    printf("Stock disponible: %d\n", stockint);
+                }
+                while (getchar() != '\n');
+                break;
+            case 2:
+                while (getchar() != '\n');
+                do
+                {
+                printf("\nIngrese la cantidad a agregar al stock: ");
                 scanf("%s", &cantidadStr);
                 if (ValidarNum(cantidadStr) != 0) {
                     repetir = 0; // Si la validación es exitosa
@@ -126,32 +172,22 @@ int main() {
                     repetir = 1; // Si la validación falla
                 }
                 cantidad = atoi(cantidadStr);
+                stockint += cantidad;
                 while ((getchar()) != '\n'); 
-            } while (repetir || cantidad < 0);
-            if(cantidad <= stockint){
-                printf("Venta exitosa\n");
-                printf("El valor de la venta es: %.2f $\n",precio * cantidad);
-                stockint -= cantidad;
-            }else{
-                printf("No hay el stock suficiente\n");
-                printf("Stock disponible: %d\n", stockint);
-            }
-            break;
-            case 2:
-                printf("Ingrese la cantidad a agregar al stock: ");
-                scanf("%d", &cantidad);
+                } while (repetir || cantidad < 0);
                 break;
-
             case 3:
                 printf("\nInformacion del producto:\n");
                 printf("ID: %s\n", id);
                 printf("Nombre: %s\n", nombre);
                 printf("Stock disponible: %d\n", stockint);
                 printf("Precio unitario: %.2f $\n", precio);
+                while (getchar() != '\n');
                 break;
 
             case 4:
-                printf("Total de ganancias: $%.2f\n", total_ganancias);
+                printf("\nTotal de ganancias: $%.2f\n", total_ganancias);
+                while (getchar() != '\n');
                 break;
 
             case 5:
