@@ -1,3 +1,9 @@
+/*
+S1 - Taller
+Integrantes: Ethan Flores
+             Miguel Ruales
+*/
+
 #include <stdio.h>
 #include<string.h>
 #include <stdlib.h>
