@@ -58,7 +58,12 @@ git reflog
 
 ##<string.h>
 
-strcpy ( c1, c2 ); Copia c2 en c1 strcat ( c1, c2 ); Añade c2 al final de c1 int strlen ( cadena ); Devuelve la longitud de la cadena int strcmp ( c1, c2 ); Devuelve cero si c1 es igual a c2; no-cero en caso contrario
+strcpy ( c1, c2 ); 
+Copia c2 en c1 strcat ( c1, c2 ); 
+Añade c2 al final de c1 int strlen ( cadena ); 
+Devuelve la longitud de la cadena int strcmp ( c1, c2 ); 
+Devuelve cero si c1 es igual a c2;
+ no-cero en caso contrario
 
 
 leer cadena 
@@ -84,3 +89,7 @@ int entero = 42;
     sprintf(cadena, "%d", entero); // Convierte el entero a cadena.
     
     printf("La cadena es: %s\n", cadena);
+
+    Eliminar el salto de line o \n
+    variable[strcspn(nombre,"/n")] = '/0';
+    strcspn busca caracter por caracter 
