@@ -93,3 +93,15 @@ int entero = 42;
     Eliminar el salto de line o \n
     variable[strcspn(nombre,"/n")] = '/0';
     strcspn busca caracter por caracter 
+
+    The  function is used to convert a lowercase character to its uppercase equivalent.
+    toupper(variabel)
+
+
+Arreglos son una variable de tipo de referencia
+
+int codigos[5]; siempre es constante
+codigos[0] = 12; asignar 
+scanf("%d",&codigo[0]);Leer Posición de un areglo 
+
+while (getchar() != '\n');
