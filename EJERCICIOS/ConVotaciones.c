@@ -5,13 +5,12 @@ N votantes*/
 
 int main() {
     int voto;
-    int numCandidatos;
+    int numVotantes;
     int votos[MAX_CANDIDATOS] = {0};
     int cont=0;
     printf("Programa de votaciones\n");
     printf("Ingrese el numero de votantes: ");
-
-    while (scanf("%d", &numCandidatos) == 0 || numCandidatos <= 0)
+    while (scanf("%d", &numVotantes) == 0 || numVotantes <= 0)
     {
         printf("Error, ingrese un numero positivo\n");
         printf("Ingrese el numero de votantes: ");
@@ -22,7 +21,7 @@ int main() {
         printf("Ingrese su voto: ");
         printf("\n1. Candidato 1\n2. Candidato 2\n3. Candidato 3\n4. Candidato 4\n5. Candidato 5\n");
         printf("Ingrese su voto: ");
-        while (scanf("%d", &voto)== 0||voto < 1 || voto > 5)
+        while (scanf("%d", &voto)== 0||voto < 1 || voto > MAX_CANDIDATOS)
         {
             printf("Error, ingrese un numero entre 1 y 5\n");
             printf("Ingrese su voto: ");
@@ -54,8 +53,8 @@ int main() {
             break;
         }
         cont++;
-        printf("Votos restantes: %d\n\n", numCandidatos-cont);
-    } while (cont<numCandidatos);
+        printf("Votos restantes: %d\n\n", numVotantes-cont);
+    } while (cont<numVotantes);
     
     
     printf("\nResultados de la votacion:\n");
@@ -67,7 +66,7 @@ int main() {
 
     printf("\nCalculo de porcentajes:\n");
     for (int i = 0; i < MAX_CANDIDATOS; i++) {
-        float porcentaje = (float)votos[i] / (float)numCandidatos * 100;
+        float porcentaje = (float)votos[i] / (float)numVotantes * 100;
         if(porcentaje != 0){
             printf("Candidato %d: %.2f%%\n", i + 1, porcentaje);
         }
