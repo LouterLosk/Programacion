@@ -9,8 +9,8 @@ y cuántos estudiantes aprobaron cada asignatura.*/
 #include <time.h> 
 #include<stdio.h>
 #include<stdlib.h>
-#define ESTUDIANTES 5
-#define ASIGNATURAS 3
+#define ESTUDIANTES 2
+#define ASIGNATURAS 2
 #define NOTAS 10 
 
 int main()
@@ -34,13 +34,17 @@ for (int i = 0; i < ESTUDIANTES; i++) {
     }
 }
 
+for (int i = 0; i < ASIGNATURAS; i++) {
+    calificacionMax[i][0] = -1; // Inicializar con un valor menor al rango de calificaciones
+    calificacionMaxNota[i][0] = -1; // Inicializar con un valor menor al rango de calificaciones
+}
+
 printf("Ingrese la cantidad de calificaciones: ");
 while (scanf("%d", &CantCalificaciones) == 0){
-    printf("Error: Ingrese un número válido.\n");
+    printf("Error: Ingrese un numero valido.\n");
     printf("Entre 1 y 10\n");
     while (getchar() != '\n'); 
-    printf("Ingrese las calificaciones de los estudiantes:");
-    printf("\n");
+    printf("Ingrese la cantidad de calificaciones: ");
 }
 
 
@@ -49,9 +53,14 @@ for(int i = 0 ; i < ESTUDIANTES; i++){
     for(int j = 0; j < ASIGNATURAS; j++){
         printf("Materia %d: \n", j + 1);
         for (int k = 0; k < CantCalificaciones; k++){
-            printf("Ingrese la calificacion %d : ", k + 1);
-            //scanf("%f", &notasAsignatura[i][j][k]);
-            notasAsignatura[i][j][k] = rand() % 11;
+            printf("Ingrese la calificacion %d: ", k + 1);
+            //notasAsignatura[i][j][k] = rand() % 11;
+            while (scanf("%f", &notasAsignatura[i][j][k]) == 0 || notasAsignatura[i][j][k] < 0 || notasAsignatura[i][j][k] > 10){
+                printf("Error: Ingrese un numero valido.\n");
+                printf("Entre 1 y 10\n");
+                while (getchar() != '\n'); 
+                printf("Ingrese la calificacion %d : ", k + 1);
+            }
         }
     }
 }
@@ -95,9 +104,7 @@ for(int i = 0; i < ESTUDIANTES; i++){
     }
 }
 
-for (int i = 0; i < ASIGNATURAS; i++) {
-    calificacionMaxNota[i][0] = -1; // Inicializar con un valor menor al rango de calificaciones
-}
+
 //nota mas alta por materia
 for (int i = 0; i < ASIGNATURAS; i++)
 {
@@ -144,7 +151,7 @@ printf("Estudiantes aprobados:\n");
 for (int i = 0; i < ASIGNATURAS; i++){
     printf("Materia %d: ", i + 1);
     if (estudiantesAprobados[i][0] > 0){
-        printf("Aprobados: %.0f\n", estudiantesAprobados[i][0]);
+        printf("Aprobados %.0f\n", estudiantesAprobados[i][0]);
     } else {
         printf("No hay estudiantes aprobados.\n");
     }
