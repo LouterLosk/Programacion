@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ethan/Documents/Code_Local/programacion1/EJERCICIOS",
-      "program": "c:/Users/ethan/Documents/Code_Local/programacion1/EJERCICIOS/build/Debug/outDebug",
+      "cwd": "c:/Users/ethan/Documents/Code_Local/programacion1/S3 - Taller",
+      "program": "c:/Users/ethan/Documents/Code_Local/programacion1/S3 - Taller/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
