@@ -9,7 +9,7 @@ y cuántos estudiantes aprobaron cada asignatura.*/
 #include <time.h> 
 #include<stdio.h>
 #include<stdlib.h>
-#define ESTUDIANTES 5
+#define ESTUDIANTES 3
 #define ASIGNATURAS 3
 #define NOTAS 10 
 
