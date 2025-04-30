@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ethan/Documents/Code_Local/programacion1/repaso",
-      "program": "c:/Users/ethan/Documents/Code_Local/programacion1/repaso/build/Debug/outDebug",
+      "cwd": "c:/Users/ethan/Documents/Code_Local/programacion1/Funciones",
+      "program": "c:/Users/ethan/Documents/Code_Local/programacion1/Funciones/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
